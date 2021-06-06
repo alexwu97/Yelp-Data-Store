@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ca.ece.ubc.cpen221.mp5.tests.ReviewTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2021-04-24T17:11:27" hostname="Yis-MacBook-Pro.local" time="0.367">
+  <properties/>
+  <testcase name="isObjectValidatedForInsertZeroStars()" classname="ca.ece.ubc.cpen221.mp5.tests.ReviewTest" time="0.114"/>
+  <testcase name="isObjectValidatedForInsertNoStars()" classname="ca.ece.ubc.cpen221.mp5.tests.ReviewTest" time="0.003"/>
+  <testcase name="autoFillFields()" classname="ca.ece.ubc.cpen221.mp5.tests.ReviewTest" time="0.108"/>
+  <testcase name="isObjectValidatedForInsertReviewType()" classname="ca.ece.ubc.cpen221.mp5.tests.ReviewTest" time="0.031"/>
+  <testcase name="isObjectValidatedForInsertNoUserID()" classname="ca.ece.ubc.cpen221.mp5.tests.ReviewTest" time="0.037"/>
+  <testcase name="isObjectValidatedForInsertMoreThanFiveStars()" classname="ca.ece.ubc.cpen221.mp5.tests.ReviewTest" time="0.002"/>
+  <testcase name="isObjectValidatedForInsertNoDate()" classname="ca.ece.ubc.cpen221.mp5.tests.ReviewTest" time="0.002"/>
+  <testcase name="isObjectValidatedForInsertValid()" classname="ca.ece.ubc.cpen221.mp5.tests.ReviewTest" time="0.001"/>
+  <testcase name="isObjectValidatedForInsertNoBusinessID()" classname="ca.ece.ubc.cpen221.mp5.tests.ReviewTest" time="0.002"/>
+  <testcase name="isObjectValidatedForInsertContainsReviewID()" classname="ca.ece.ubc.cpen221.mp5.tests.ReviewTest" time="0.003"/>
+  <testcase name="isObjectValidatedForInsertIncorrectType()" classname="ca.ece.ubc.cpen221.mp5.tests.ReviewTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
