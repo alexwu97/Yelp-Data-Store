@@ -27,7 +27,9 @@ public class MP5DbImpl implements MP5Db<Restaurant> {
     public final static String INVALID_RESTAURANT_ID = "ERR: INVALID_RESTAURANT_ID";
     public final static String INVALID_RESTAURANT_STRING = "ERR: INVALID_RESTAURANT_STRING";
     public final static String INVALID_USER_STRING = "ERR: INVALID_USER_STRING";
+    public final static String INVALID_USER_ID = "ERR: INVALID_USER_ID";
     public final static String INVALID_REVIEW_STRING = "ERR: INVALID_REVIEW_STRING";
+    public final static String INVALID_REVIEW_ID = "ERR: INVALID_REVIEW_ID";
 
     private MP5DbImpl(String restaurantList, String userList, String reviewList){
         restaurantTable = new HashMap<>();
@@ -79,12 +81,68 @@ public class MP5DbImpl implements MP5Db<Restaurant> {
 
     public String selectRestaurant(String query){
         synchronized (restaurantLock){
-            if(query == null || query.length() == 0 || !restaurantTable.containsKey(query)) {
-                return INVALID_RESTAURANT_ID;
-            }
-            Restaurant foundedRestaurant = restaurantTable.get(query);
-            return gson.toJson(foundedRestaurant);
+            return getRestaurant(query);
         }
+    }
+
+    public String deleteRestaurant(String query){
+        synchronized (restaurantLock){
+            String result = getRestaurant(query);
+            restaurantTable.remove(query);
+            return result;
+        }
+    }
+
+    public String getRestaurant(String query){
+        if(query == null || query.length() == 0 || !restaurantTable.containsKey(query)){
+            return INVALID_RESTAURANT_ID;
+        }
+        Restaurant foundedRestaurant = restaurantTable.get(query);
+        return gson.toJson(foundedRestaurant);
+    }
+
+    public String selectUser(String query){
+        synchronized (userLock){
+            return getUser(query);
+        }
+    }
+
+    public String deleteUser(String query){
+        synchronized (userLock){
+            String result = getUser(query);
+            userTable.remove(query);
+            return result;
+        }
+    }
+
+    public String getUser(String query){
+        if(query == null || query.length() == 0 || !userTable.containsKey(query)){
+            return INVALID_USER_ID;
+        }
+        User foundedUser = userTable.get(query);
+        return gson.toJson(foundedUser);
+    }
+
+    public String selectReview(String query){
+        synchronized (reviewLock){
+            return getReview(query);
+        }
+    }
+
+    public String deleteReview(String query){
+        synchronized (restaurantLock){
+            String result = getReview(query);
+            reviewTable.remove(query);
+            return result;
+        }
+    }
+
+    public String getReview(String query){
+        if(query == null || query.length() == 0 || !reviewTable.containsKey(query)){
+            return INVALID_REVIEW_ID;
+        }
+        Review foundedReview = reviewTable.get(query);
+        return gson.toJson(foundedReview);
     }
 
     public String insertRestaurant(String query){
@@ -149,7 +207,7 @@ public class MP5DbImpl implements MP5Db<Restaurant> {
         };
     }
 
-    //GETTERS & SETTERS
+    //GETTERS
 
     public Map<String, Restaurant> getRestaurantTable(){
         return this.restaurantTable;

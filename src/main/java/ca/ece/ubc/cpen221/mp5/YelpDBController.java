@@ -23,6 +23,12 @@ public class YelpDBController {
             case "GETRESTAURANT":
                 response = getRestaurant(requestData);
                 break;
+            case "GETREVIEW":
+                response = getReview(requestData);
+                break;
+            case "GETUSER":
+                response = getUser(requestData);
+                break;
             case "ADDUSER":
                 response = addUser(requestData);
                 break;
@@ -35,6 +41,15 @@ public class YelpDBController {
             case "PREDICT":
                 response = predictStars(requestData);
                 break;
+            case "DELETERESTAURANT":
+                response = delRestaurant(requestData);
+                break;
+            case "DELETEUSER":
+                response = delUser(requestData);
+                break;
+            case "DELETEREVIEW":
+                response = delReview(requestData);
+                break;
             default:
                 response = yelpDB.INVALID_REQUEST;
         }
@@ -44,6 +59,10 @@ public class YelpDBController {
     public String getRestaurant(String data){
         return yelpDB.selectRestaurant(data);
     }
+
+    public String getUser(String data){ return yelpDB.selectUser(data); }
+
+    public String getReview(String data){ return yelpDB.selectReview(data); }
 
     public String addUser(String data){
         return yelpDB.insertUser(data);
@@ -60,4 +79,10 @@ public class YelpDBController {
     public String predictStars(String data){
         return yelpDB.predictStars(data);
     }
+
+    public String delRestaurant(String data){ return yelpDB.deleteRestaurant(data); }
+
+    public String delUser(String data){ return yelpDB.deleteUser(data); }
+
+    public String delReview(String data){ return yelpDB.deleteReview(data); }
 }
